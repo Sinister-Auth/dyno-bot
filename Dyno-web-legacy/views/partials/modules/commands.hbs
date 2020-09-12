@@ -1,0 +1,33 @@
+<div id="commands" class="tab-content">
+	<h3 class="title is-4">Commands</h3>
+
+    {{>moduleheader}}
+
+	<div class="tabs">
+		<ul>
+		{{#each commands}}
+			<li{{#if @first}} class="is-active"{{/if}}><a href="#/commands-{{this.name}}" class="subtab-control">{{this.name}}</a></li>
+		{{/each}}
+		</ul>
+	</div>
+	
+	<div class="flex-container">
+	{{#each commands}}
+		<div id="commands-{{this.name}}" class="subtab-content{{#if @first}} is-active{{/if}}">
+			{{!-- <label class="label">{{this.name}}</label> --}}
+			{{#each this.commands}}
+				<div class="control command-toggle is-pulled-left">
+					<label class="checkbox">
+						<input id="{{this.name}}" class="command" type="checkbox" value="{{this.name}}"{{#if this.enabled}} checked="checked"{{/if}}{{#if this.noDisable}}disabled="disabled"{{/if}}>
+						{{this.name}}
+					</label>
+					<p class="help-text">{{this.description}}{{#if this.permissions}}, {{this.permissions}} permission{{/if}}{{#if this.noedit}}, requires {{this.group}} module{{/if}}</p>
+				</div>
+			{{/each}}
+			<span class="is-clearfix"></span>
+			{{#unless isLast}}<hr />{{/unless}}
+		</div>
+	{{/each}}
+	<span class="is-clearfix"></span>
+	</div>
+</div>

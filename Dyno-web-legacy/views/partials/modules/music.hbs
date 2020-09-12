@@ -1,0 +1,61 @@
+<div id="module-music" class="tab-content">
+	<h3 class="title is-4">Music Settings</h3>
+
+	{{>moduleheader}}
+
+	<div class="module-toggles">
+		{{! Music toggles }}
+		<p class="control setting-toggle is-pulled-left">
+			<label class="checkbox">
+				<input id="repeat" class="module-setting-checkbox" type="checkbox" data-module="music" name="repeat" value="{{@root.server.music.repeat}}"{{#if @root.server.music.repeat}} checked="checked"{{/if}}>
+				Repeat playlist
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<label class="checkbox">
+				<input id="modonly" class="module-setting-checkbox" type="checkbox" data-module="music" name="modonly" value="{{@root.server.music.modonly}}"{{#if @root.server.music.modonly}} checked="checked"{{/if}}>
+				Limit commands mod/dj only
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<label class="checkbox">
+				<input id="channelonly" class="module-setting-checkbox" type="checkbox" data-module="music" name="channelonly" value="{{@root.server.music.channelonly}}"{{#if @root.server.music.channelonly}} checked="checked"{{/if}}{{#unless @root.server.music.channel}}disabled="disabled"{{/unless}}>
+				Limit commands music channel
+			</label>
+		</p>
+
+		<p class="control setting-toggle is-pulled-left">
+			<label class="checkebox">
+				<input id="skipEnabled" class="module-setting-checkbox" type="checkbox" data-module="music" name="skipEnabled" value="{{@root.server.music.skipEnabled}}"{{#if @root.server.music.skipEnabled}} checked="checked"{{/if}}>
+				Allow skip voting
+			</label>
+	</div>
+
+	{{! Music channel }}
+	<label class="label">Music Channel</label>
+	<p class="control">
+		<span class="select">
+			<select class="setting-dropdown" name="channel" data-module="music">
+				<option>Select Channel</option>
+				{{#each @root.channels}}
+					<option value="{{this.id}}"{{#compare this.id @root.server.music.channel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+				{{/each}}
+			</select>
+		</span>
+	</p>
+
+	{{! DJ Role }}
+	<label class="label">DJ Role</label>
+	<p class="control">
+		<span class="select">
+			<select class="setting-dropdown" name="role" data-module="music">
+				<option>Select Role</option>
+				{{#each @root.roles}}
+					<option value="{{this.id}}"{{#compare this.id @root.server.music.role}}selected="selected"{{/compare}}>{{this.name}}</option>
+				{{/each}}
+			</select>
+		</span>
+	</p>
+</div>

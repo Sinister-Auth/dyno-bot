@@ -1,0 +1,35 @@
+<div id="module-moderation" class="tab-content">
+	<h3 class="title is-4">Moderation Settings</h3>
+
+	{{>moduleheader}}
+
+	<div class="module-toggles">
+		{{! Moderation toggles }}
+		<p class="control setting-toggle is-pulled-left">
+			<label class="checkbox">
+				<input id="dmBans" class="module-setting-checkbox" type="checkbox" data-module="moderation" name="dmBans" value="{{@root.server.moderation.dmBans}}"{{#if @root.server.moderation.dmBans}} checked="checked"{{/if}}>
+				DM Users on kick/ban/mute
+			</label>
+		</p>
+
+	    <p class="control setting-toggle is-pulled-left">
+	        <label class="checkbox">
+	            <input id="dmBans" class="module-setting-checkbox" type="checkbox" data-module="moderation" name="deleteCommands" value="{{@root.server.moderation.deleteCommands}}"{{#if @root.server.moderation.deleteCommands}} checked="checked"{{/if}}>
+	            Delete mod commands when used.
+	        </label>
+	    </p>
+	</div>
+
+	{{! Log channel }}
+	<label class="label">Log Channel</label>
+	<p class="control">
+		<span class="select">
+			<select class="setting-dropdown" name="channel" data-module="moderation">
+				<option>Select Channel</option>
+				{{#each @root.channels}}
+					<option value="{{this.id}}"{{#compare this.id @root.server.moderation.channel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+				{{/each}}
+			</select>
+		</span>
+	</p>
+</div>

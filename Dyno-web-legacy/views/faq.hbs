@@ -1,0 +1,90 @@
+<div class="container">
+	<div class="columns">
+		<div class="column">
+			<h1 class="title">Frequently Asked Questions</h1>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="column faq">
+			<div class="faq-item">
+				<h3 class="title is-5">
+					How do I use the bot?
+				</h3>
+				<div class="faq-answer">
+					<p>
+						{{#unless user}}Start by <a href="/auth" title="Login with Discord">logging in here</a>.{{/unless}}
+						{{#if user}}Start by selecting your server from this list: <p>{{>serverselect}}</p>{{/if}}
+					</p>
+					<p>Once you're in the server manager, you can configure commands, modules, and more.</p>
+					<p>For a full list of commands, head over to the <a href="/commands" title="Command List">Command List</a>.</p>
+				</div>
+			</div>
+			<div class="faq-item">
+				<h3 class="title is-5">
+					How can I donate?
+				</h3>
+				<div class="faq-answer">
+					<p>If you would like to support the project monthly, feel free to donate on <a href="https://www.patreon.com/dyno" title="Patreon">Patreon</a>.</p>
+					<p>If you would like to do a one time direct donation, head to <a href="https://www.paypal.me/DynoDiscord" title="PayPal">PayPal</a>.</p>
+				</div>
+			</div>
+			<div class="faq-item">
+				<h3 class="title is-5">
+					Is Dyno open source?
+				</h3>
+				<div class="faq-answer">
+					<p>Dyno is not open source for several reasons.</p>
+					<p>1. Dyno is a public bot and platform that is comprised of multiple services, which also depend on multiple services, we do not plan to make it self contained and distributable.</p>
+					<p>2. We value the enormous amount of time and effort that's been put into Dyno, and would prefer people to use it as we provide it, a service to you.</p>
+					<p>3. A private hosted service will be available soon, which will allow you to change various aspects of Dyno as if it were a self-hosted bot, completely maintained, updated, and supported by us.</p>
+				</div>
+			</div>
+			<div class="faq-item">
+				<h3 class="title is-5">
+					Why won't Dyno join my channel?
+				</h3>
+				<div class="faq-answer">
+					<p>Be sure Dyno has the following permissions: Connect, Speak and Voice Activity. If it does try doing ?stop to see if it connects then leaves quickly.</p>
+					<p>If that does not work head over to the support channel on the <a href=discord.gg/dyno title="Discord Server">Discord Server</a></p>
+				</div>
+			</div>
+			<div class="faq-item">
+				<h3 class="title is-5">
+					Why is the music stuttering?
+				</h3>
+				<div class="faq-answer">
+					<p>The bot tends to stutter and lag under heavy loads and not much else can be done by the user.</p>
+					<p>We suggest you moving your voice server region to US East as it is the closest server region to the bot host.</p>
+				</div>
+			</div>
+			<div class="faq-item">
+				<h3 class="title is-5">
+					How can I lower Dyno's volume?
+				</h3>
+				<div class="faq-answer">
+					<p>The only way to lower Dyno's sound is locally, typically by right clicking and dragging the volume slider to the left.</p>
+					<p>The other way to lower discord volume is by going to User Settings > Voice emband lowering the output volume. Suggested level is 25%-40%.</p>
+				</div>
+			</div>
+			<div class="faq-item">
+				<h3 class="title is-5">
+					Why won't Dyno assign roles? (AutoRole, ?role)
+				</h3>
+				<div class="faq-answer">
+					<p>Discord works on a role heiarchy and requires someone to have a physically higher role in order to modify/give a role below it.</p>
+					<p>Desktop Fix: Drag Dyno's role up in Server Settings > Roles.</p>
+					<p>Mobile Fix: Go to Server Settings > Roles and hit edit and drag Dyno's role up.</p>
+				</div>
+			</div>
+			<div class="faq-item">
+				<h3 class="title is-5">
+					Why isn't automod moderating my messages?
+				</h3>
+				<div class="faq-answer">
+					<p>Automod by default ignores mods and admins (At this moment in time this can't be changed).</p>
+					<p>If it isn't automuting a user after the amount of set infractions(Banned Words and Caps do not apply) try manualling muting someone with the mute command first.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

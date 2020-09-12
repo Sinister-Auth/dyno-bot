@@ -1,0 +1,128 @@
+@import './layout.sass';
+@import './carbon.sass';
+@import '../../node_modules/bulma/sass/components/tabs';
+@import '../../node_modules/bulma/sass/elements/notification';
+
+#modules .flex-container,
+#commands .subtab-content.is-active,
+.module-toggles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#modules .module-toggle,
+#commands .command-toggle,
+.module-toggles .setting-toggle {
+  order: 1;
+  flex-shrink: 1;
+  width: 32%;
+  background-color: $secondary;
+  border: solid $border 1px;
+  padding: 0.7em 1em;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+@media (max-width: 940px) {
+  #modules .module-toggle,
+  #commands .command-toggle,
+  .module-toggles .setting-toggle {
+    width: 48%;
+  }
+}
+
+.module-toggles {
+  border-bottom: solid $text 1px;
+  padding-bottom: 0.6em;
+  margin-bottom: 1em;
+}
+
+.tag.is-small {
+  margin: 0.2em;
+  border-radius: 0.4em;
+  background-color: $secondary;
+  border: solid $border 1px;
+  padding: 1em 0.8em;
+}
+
+.tag .delete {
+  margin-left: 5px;
+  color: $text;
+}
+
+.playlist-thumb,
+.playlist-title {
+  height: 60px;
+  line-height: 60px;
+}
+
+.playlist-clear {
+  margin-right: 3rem;
+}
+
+.playlist-remove {
+  margin-top: 1rem;
+}
+
+.message hr {
+  margin: 0.5rem 0 1rem;
+}
+
+.settings-inline {
+  display: block;
+  min-width: 250px;
+  float: left;
+  margin-right: 1rem;
+}
+
+.level.mod {
+  margin-bottom: 0.25rem;
+}
+
+.title {
+  word-break: normal;
+}
+
+.has-addons .label {
+  background-color: $control-background;
+  height: 32px;
+  padding: 5px 10px;
+  border-radius: 3px 0 0 3px;
+}
+
+.new-command textarea {
+  height: 84px;
+  max-width: 50%;
+}
+
+.webhook-output {
+  display: block;
+  padding: 1em 0.5em;
+}
+
+.warn {
+  color: $red;
+}
+
+.module-multitext {
+  margin-bottom: 1em;
+}
+
+.module-multitext textarea {
+  height: 5em;
+  line-height: 1.5em;
+}
+
+#loader {
+  min-height: 200px;
+}
+
+#loader .loading {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  background: url("/images/gears.png") no-repeat center;
+  background-image: url("/images/gears.svg");
+  background-size: contain;
+}

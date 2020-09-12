@@ -1,0 +1,55 @@
+<div id="module-autoresponder" class="tab-content">
+	<h3 class="title is-4">Autoresponder</h3>
+
+	{{>moduleheader}}
+
+	<div class="tabs">
+	  <ul>
+	    <li class="is-active"><a href="#/autoresponder-add" class="subtab-control">Add Response</a></li>
+	    <li><a href="#/autoresponder-list" class="subtab-control">Responses</a></li>
+	  </ul>
+	</div>
+	
+	<div id="autoresponder-add" class="subtab-content is-active">
+		<form class="new-response">
+			<label class="label">Command</label>
+			<p class="control has-addons">
+				<input class="input" name="command" type="text" value="" maxlength="72">
+			</p>
+			<p class="control">
+				<label class="label">Response</label>
+				<textarea class="input" name="response"></textarea>
+			</p>
+			<p class="control">
+				<a class="button is-info">Add</a>
+			</p>
+			{{>variables}}
+		</form>
+	</div>
+
+	<div id="autoresponder-list" class="subtab-content">
+		{{#unless @root.server.autoresponder}}
+			<h4>There are no auto responses.</h4>
+		{{/unless}}
+		{{#if @root.server.autoresponder}}
+			<table class="table is-striped">
+				<thead>
+					<tr>
+						<th>Trigger</th>
+						<th>Response</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each @root.server.autoresponder.commands}}
+						<tr>
+							<td>{{this.command}}</td>
+							<td>{{this.response}}</td>
+							<td><a class="button is-info response-remove" href="#" data-command="{{this.command}}">Remove</a></td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		{{/if}}
+	</div>
+</div>

@@ -1,0 +1,118 @@
+@import "./base.sass";
+
+.section, .box
+	background-color: $background;
+
+.top-bar
+	background-color: $info;
+	padding: 0.5rem 1rem;
+	margin-bottom: 2rem;
+	border-bottom: solid $border 1px;
+	box-shadow: 0px 0px 1em 0px rgba(0,0,0,0.4);
+	.image.is-32x32
+		border-radius: 25%;
+	.title
+		min-height: $nav-height;
+		line-height: $nav-height;
+		margin-bottom: 0;
+		margin-right: 1rem;
+	.title a
+		display: block;
+		background: url('/images/dyno-v2.2-50.png') left center no-repeat;
+		padding-left: 55px;
+		&:hover
+			border: none;
+	.nav
+		padding-top: 0.3rem;
+		background-color: $info;
+	.nav-menu
+		background-color: $info;
+	.nav a
+		padding: 0;
+	.nav-menu a
+		padding: 10px;
+		color: #fff;
+		&.button
+			margin-top: 6px;
+	.button.is-info
+		background-color: #2d73af;
+		&:hover
+			background-color: #286499;
+
+.tabs li.is-active a
+	background-color: $secondary;
+
+.tab-content, .subtab-content
+	display: none;
+	&.is-active
+		display: block;
+
+.menu
+	padding: 1em;
+	background-color: $secondary;
+	border: solid $border 1px;
+	padding-top: 1em;
+	border-radius: 5px 5px 3px 3px;
+	position: relative;
+	&.has-label
+		padding-top: calc(1.2em + 25px);
+		.menu-label
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 25px;
+			text-align: center;
+			line-height: 25px;
+			border-radius: 5px 5px 0 0;
+			background-color: $info;
+
+.menu-list a.is-active
+	background-color: $info;
+
+.title.is-4
+	border-bottom: solid 1px;
+	padding-bottom: 0.3em;
+
+.message
+	background-color: transparent;
+	&.manage-server
+		margin-bottom: 1em;
+		.select
+			width: 100%;
+			select
+				width: 100%;
+
+.message-header
+	background-color: $info;
+
+.message-body
+	background-color: $secondary;
+
+.control
+	margin-bottom: 10px;
+
+.discord-widget
+	display: block;
+	margin: 1em 0;
+	img
+		border-radius: 5px;
+	@media screen and (max-width: 420px)
+		display: none;
+
+.table
+  background-color: $background
+  &.is-striped
+    thead
+      background-color: darken($background, 3%)
+      tr
+        &:hover
+          background-color: darken($background, 3%)
+    tbody
+      tr
+        &:hover
+          background-color: darken($background, 3%)
+        &:nth-child(2n)
+          background-color: darken($background, 1%)
+          &:hover
+            background-color: darken($background, 3%)

@@ -1,0 +1,52 @@
+<div id="module-tags" class="tab-content">
+	<h3 class="title is-4">Tags Settings</h3>
+
+	{{>moduleheader}}
+
+	<p class="control setting-toggle is-pulled-left">
+		<label class="checkbox">
+			<input id="limitCreate" class="module-setting-checkbox" type="checkbox" data-module="tags" name="limitCreate" value="{{@root.server.tags.limitCreate}}"{{#if @root.server.tags.limitCreate}} checked="checked"{{/if}}>
+			Don't allow everyone to create tags
+		</label>
+	</p>
+
+	<span class="clearfix"></span>
+
+	<form class="tags-allowed">
+		<input type="hidden" name="name" value="" />
+		<label class="label">Add Allowed Role</label>
+		<p class="control has-addons">
+			<span class="select">
+				{{!-- I know this isn't a channel... not fixing unless refactor --}}
+				<select class="item-channel tags-role-dropdown" name="id">
+					<option>Select Role</option>
+					{{#each @root.roles}}
+						<option value="{{this.id}}" data-name="{{this.name}}">{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+			<input class="button add-module-item is-info" type="button" value="Add" data-module="tags" data-setting="allowedRoles">
+		</p>
+	</form>
+
+	{{#if @root.server.tags.allowedRoles}}
+	  <table class="table is-striped">
+	    <thead>
+	      <tr>
+	        <th>Role</th>
+	        <th></th>
+	      </tr>
+	    </thead>
+	    <tbody>
+	      {{#each @root.server.tags.allowedRoles}}
+	        <tr>
+	          <td>{{this.name}}</td>
+	          <td>
+	          	<a class="button is-info remove-module-item" href="#" data-id="{{this.id}}" data-name="{{this.name}}" data-module="tags" data-setting="allowedRoles">Remove</a>
+          	</td>
+	        </tr>
+	      {{/each}}
+	    </tbody>
+	  </table>
+	{{/if}}
+</div>

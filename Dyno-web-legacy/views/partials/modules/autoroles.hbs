@@ -1,0 +1,40 @@
+<div id="module-autoroles" class="tab-content">
+	<h3 class="title is-4">Autorole Settings</h3>
+
+	{{>moduleheader}}
+
+	{{! Toggles }}
+	<p class="control setting-toggle is-pulled-left">
+		<label class="checkbox">
+			<input id="disableMulti" class="module-setting-checkbox" type="checkbox" data-module="autoroles" name="disableMulti" value="{{@root.server.autoroles.disableMulti}}"{{#if @root.server.autoroles.disableMulti}} checked="checked"{{/if}}>
+			Limit to one rank
+		</label>
+	</p>
+
+	<span class="is-clearfix"></span>
+
+	{{! Role on join }}
+	<label class="label">Give role on join</label>
+	<p class="control">
+		<span class="select">
+			<select class="setting-dropdown" name="roleOnJoin" data-module="autoroles">
+				<option>Select Role</option>
+				{{#each @root.roles}}
+					<option value="{{this.id}}"{{#compare this.id @root.server.autoroles.roleOnJoin}}selected="selected"{{/compare}}{{#if this.disabled}}disabled="disabled"{{/if}}>{{this.name}}</option>
+				{{/each}}
+			</select>
+		</span>
+	</p>
+	<p class="help-text">Note: The Dyno role must be higher than the role it's assigning.</p>
+
+    <br />
+
+    <label class="label">Timed Role (in minutes, 1 = 1 minute)</label>
+    <form class="text-form">
+        <p class="control has-addons">
+            <input class="input is-expanded" type="text" data-module="autoroles" name="joinWait" value="{{@root.server.autoroles.joinWait}}">
+            <input class="button update-module-setting is-info" type="button" value="Update">
+        </p>
+    </form>
+    <p class="help-text">Note: This will delay giving a role on join until the user has been on the server for the number of minutes defined above.</p>
+</div>

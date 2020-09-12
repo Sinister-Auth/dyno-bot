@@ -1,0 +1,66 @@
+<div id="module-customcommands" class="tab-content">
+	<h3 class="title is-4">Custom Commands</h3>
+
+	{{>moduleheader}}
+
+	<div class="tabs">
+	  <ul>
+	    <li class="is-active"><a href="#/customcommands-add" class="subtab-control">Add Command</a></li>
+	    <li><a href="#/customcommands-list" class="subtab-control">Commands</a></li>
+	  </ul>
+	</div>
+
+	<div id="customcommands-add" class="subtab-content is-active">
+		<form class="new-command">
+			<label class="label">Command</label>
+			<p class="control has-addons">
+				<label class="label">{{@root.server.prefix}}</label>
+				<input class="input" name="command" type="text" value="" maxlength="72">
+			</p>
+			<p class="control">
+				<label class="label">Response</label>
+				<textarea class="input" name="response"></textarea>
+			</p>
+			<p class="control">
+				<a class="button is-info">Add</a>
+			</p>
+			{{>variables}}
+			<p class="help-text">
+				Advanced
+				<ul>
+					<li><code>$N</code> - returns a command argument, example: <code>You chose $1</code></li>
+					<li><code>{!command}</code> - execute a bot command, example: <code>{!role $1 Regulars}</code></li>
+					<li><code>{require:}</code> - Set required roles or serverMod to use command, example:<code>{require:serverMod} {require:Accomplices}</code></li>
+					<li><code>{delete}</code> - Delete command trigger after, example: <code> {delete} I am Dyno </code></li>
+				</ul>
+			</p>
+		</form>
+	</div>
+
+	<div id="customcommands-list" class="subtab-content">
+		{{#unless @root.server.customcommands}}
+			<h4>There are no commands.</h4>
+		{{/unless}}
+		{{#if @root.server.customcommands}}
+			<table class="table is-striped">
+				<thead>
+					<tr>
+						<th>Command</th>
+						<th>Response</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each @root.server.customcommands.commands}}
+						<tr>
+							<td>{{@root.server.prefix}}{{this.command}}</td>
+							<td>{{this.response}}</td>
+							<td><a class="button is-info command-remove" href="#" data-command="{{this.command}}">Remove</a></td>
+						</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		{{/if}}
+	</div>
+
+</div>

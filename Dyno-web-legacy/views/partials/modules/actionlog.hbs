@@ -1,0 +1,224 @@
+<div id="module-actionlog" class="tab-content">
+	<h3 class="title is-4">Action Log</h3>
+
+	{{>moduleheader}}
+
+	<div class="tabs">
+	  <ul>
+	    <li class="is-active"><a href="#/actionlog-settings" class="subtab-control">Settings</a></li>
+	    <li><a href="#/actionlog-channels" class="subtab-control">Ignored Channels</a></li>
+	  </ul>
+	</div>
+
+	<div id="actionlog-settings" class="subtab-content is-active">
+		<div class="module-toggles">
+			{{! Action log toggles }}
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="guildMemberAdd" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="guildMemberAdd" value="{{@root.server.actionlog.guildMemberAdd}}"{{#if @root.server.actionlog.guildMemberAdd}} checked="checked"{{/if}}>
+					Member joins
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="guildMemberRemove" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="guildMemberRemove" value="{{@root.server.actionlog.guildMemberRemove}}"{{#if @root.server.actionlog.guildMemberRemove}} checked="checked"{{/if}}>
+					Member leaves
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="guildBanAdd" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="guildBanAdd" value="{{@root.server.actionlog.guildBanAdd}}"{{#if @root.server.actionlog.guildBanAdd}} checked="checked"{{/if}}>
+					Member banned
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="guildBanRemove" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="guildBanRemove" value="{{@root.server.actionlog.guildBanRemove}}"{{#if @root.server.actionlog.guildBanRemove}} checked="checked"{{/if}}>
+					Member unbanned
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="messageEdit" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="messageEdit" value="{{@root.server.actionlog.messageEdit}}"{{#if @root.server.actionlog.messageEdit}} checked="checked"{{/if}}>
+					Message edits
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="messageDelete" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="messageDelete" value="{{@root.server.actionlog.messageDelete}}"{{#if @root.server.actionlog.messageDelete}} checked="checked"{{/if}}>
+					Message deleted
+				</label>
+			</p>
+
+		    <p class="control setting-toggle is-pulled-left">
+		        <label class="checkbox">
+		            <input id="messageDeleteBulk" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="messageDeleteBulk" value="{{@root.server.actionlog.messageDeleteBulk}}"{{#if @root.server.actionlog.messageDeleteBulk}} checked="checked"{{/if}}>
+		            Bulk message delete (purge/prune)
+		        </label>
+		    </p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="channelCreate" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="channelCreate" value="{{@root.server.actionlog.channelCreate}}"{{#if @root.server.actionlog.channelCreate}} checked="checked"{{/if}}>
+					Channel created
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="channelDelete" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="channelDelete" value="{{@root.server.actionlog.channelDelete}}"{{#if @root.server.actionlog.channelDelete}} checked="checked"{{/if}}>
+					Channel deleted
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="guildRoleCreate" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="guildRoleCreate" value="{{@root.server.actionlog.guildRoleCreate}}"{{#if @root.server.actionlog.guildRoleCreate}} checked="checked"{{/if}}>
+					Role created
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="guildRoleDelete" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="guildRoleDelete" value="{{@root.server.actionlog.guildRoleDelete}}"{{#if @root.server.actionlog.guildRoleDelete}} checked="checked"{{/if}}>
+					Role deleted
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="guildRoleUpdate" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="guildRoleUpdate" value="{{@root.server.actionlog.guildRoleUpdate}}"{{#if @root.server.actionlog.guildRoleUpdate}} checked="checked"{{/if}}>
+					Role updated
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="memberRoleAdd" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="memberRoleAdd" value="{{@root.server.actionlog.memberRoleAdd}}"{{#if @root.server.actionlog.memberRoleAdd}} checked="checked"{{/if}}>
+					Role given
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="memberRoleRemove" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="memberRoleRemove" value="{{@root.server.actionlog.memberRoleRemove}}"{{#if @root.server.actionlog.memberRoleRemove}} checked="checked"{{/if}}>
+					Role removed
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="nickChange" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="nickChange" value="{{@root.server.actionlog.nickChange}}"{{#if @root.server.actionlog.nickChange}} checked="checked"{{/if}}>
+					Nickname changes
+				</label>
+			</p>
+
+		    <p class="control setting-toggle is-pulled-left">
+		        <label class="checkbox">
+		            <input id="userChange" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="userChange" value="{{@root.server.actionlog.userChange}}"{{#if @root.server.actionlog.userChange}} checked="checked"{{/if}}>
+		            Username changes
+		        </label>
+		    </p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="commands" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="commands" value="{{@root.server.actionlog.commands}}"{{#if @root.server.actionlog.commands}} checked="checked"{{/if}}>
+					Manager/Moderator commands
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="voiceChannelJoin" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="voiceChannelJoin" value="{{@root.server.actionlog.voiceChannelJoin}}"{{#if @root.server.actionlog.voiceChannelJoin}} checked="checked"{{/if}}>
+					Voice channel joins
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="voiceChannelLeave" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="voiceChannelLeave" value="{{@root.server.actionlog.voiceChannelLeave}}"{{#if @root.server.actionlog.voiceChannelLeave}} checked="checked"{{/if}}>
+					Voice channel leaves
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="voiceChannelSwitch" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="voiceChannelSwitch" value="{{@root.server.actionlog.voiceChannelSwitch}}"{{#if @root.server.actionlog.voiceChannelSwitch}} checked="checked"{{/if}}>
+					Voice channel moves
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="invites" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="invites" value="{{@root.server.actionlog.invites}}"{{#if @root.server.actionlog.invites}} checked="checked"{{/if}}>
+					Log invites/info
+				</label>
+			</p>
+
+			<p class="control setting-toggle is-pulled-left">
+				<label class="checkbox">
+					<input id="showThumb" class="module-setting-checkbox" type="checkbox" data-module="actionlog" name="showThumb" value="{{@root.server.actionlog.showThumb}}"{{#if @root.server.actionlog.showThumb}} checked="checked"{{/if}}>
+					Show thumbnail on member join/leave
+				</label>
+			</p>
+		</div>
+
+		{{! Log channel }}
+		<label class="label">Log Channel</label>
+		<p class="control">
+			<span class="select">
+				<select class="setting-dropdown" name="channel" data-module="actionlog">
+					<option>Select Channel</option>
+					{{#each @root.channels}}
+						<option value="{{this.id}}"{{#compare this.id @root.server.actionlog.channel}}selected="selected"{{/compare}}>#{{this.name}}</option>
+					{{/each}}
+				</select>
+			</span>
+		</p>
+	</div>
+
+	<div id="actionlog-channels" class="subtab-content">
+		<p>Events for deleted messages and mod/manager commands will not be logged in these channels.</p>
+		<form class="actionlog-ignored">
+			<input type="hidden" name="name" value="" />
+			<label class="label">Add Ignored Channel</label>
+			<p class="control has-addons">
+				<span class="select">
+					<select class="item-channel actionlog-channel" name="id">
+						<option>Select Channel</option>
+						{{#each @root.channels}}
+							<option name="{{this.name}}" value="{{this.id}}" data-name="{{this.name}}">#{{this.name}}</option>
+						{{/each}}
+					</select>
+				</span>
+				<input class="button add-module-item is-info" type="button" value="Add" data-module="actionlog" data-setting="ignoredChannels">
+			</p>
+		</form>
+
+		{{#if @root.server.actionlog.ignoredChannels}}
+		  <table class="table is-striped">
+		    <thead>
+		      <tr>
+		        <th>Channel</th>
+		        <th></th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		      {{#each @root.server.actionlog.ignoredChannels}}
+		        <tr>
+		          <td>#{{this.name}}</td>
+		          <td>
+		          	<a class="button is-info remove-module-item" href="#" data-id="{{this.id}}" data-name="{{this.name}}" data-module="actionlog" data-setting="ignoredChannels">Remove</a>
+	          	</td>
+		        </tr>
+		      {{/each}}
+		    </tbody>
+		  </table>
+		{{/if}}
+	</div>
+</div>

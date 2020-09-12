@@ -1,0 +1,83 @@
+<div class="container homepage">
+
+	<div class="columns">
+		<div class="column">
+			<h1 class="title">A Multi-purpose Discord Bot</h1>
+		</div>
+	</div>
+	
+	<div class="columns">
+		<div class="column is-3">
+			{{#if guilds}}
+			<div class="message has-label manage-server">
+				<div class="message-header">Manage Server</div>
+				<div class="message-body">
+					{{>serverselect}}
+				</div>
+				{{!-- <ul class="menu-list">
+				{{#if servers}}
+					{{#each servers}}
+						<li><a href="/server/{{this.id}}">{{this.name}}</a></li>
+					{{/each}}
+				{{else}}
+					{{#each guilds}}
+						<li><a href="/server/{{this.id}}">{{this.name}}</a></li>
+					{{/each}}
+				{{/if}}
+				</ul> --}}
+			</div>
+			{{/if}}
+			<div id="carbon">
+				<div class="carbon-wrapper">
+					<script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=dynobotnet" id="_carbonads_js"></script>
+				</div>
+			</div>
+			<a class="discord-widget" href="https://discord.gg/eYQnVv9" title="Join us on Discord">
+				<img src="https://discordapp.com/api/guilds/203039963636301824/embed.png?style=banner3&t={{t}}" />
+			</a>
+		</div>
+		<div class="column">
+			{{!-- <h3 class="title is-4">A Multi-purpose Discord Bot</h3> --}}
+			<div class="message">
+				<div class="message-header">About Dyno</div>
+				<div class="message-body">
+					<p>
+						Dyno is a fully customizable bot for your discord server with a simple and intuitive web dashboard.
+						It brings a ton of features such as moderation, anti-spam/auto moderation, role management, custom commands, music,
+						and many more that will greatly simplify managing your server and provide additional features for your members.<br />
+					</p>
+					<p>
+						Trusted by <strong>{{#if guildCount}}{{guildCount}}{{/if}}{{#unless guildCount}}over 95,000{{/unless}}</strong> servers, we invite you to try it out, and hope you enjoy!
+					</p>
+				</div>
+			</div>
+			<div class="message">
+				<div class="message-header">Getting Started</div>
+				<div class="message-body">
+					<p>To get started with Dyno,{{#unless user}} login with discord and{{/unless}} choose the server that you would like to setup.</p>
+					{{#unless user}}<br /><a class="button is-info" href="/auth">Login with Discord</a>{{/unless}}
+				</div>
+			</div>
+			<div class="message">
+				<div class="message-header">Features</div>
+				<div class="message-body">
+					<ul>
+						<li>Moderation - Moderation with Mod log, timed mutes and bans</li>
+						<li>Auto Moderation - Advanced and fully configurable</li>
+						<li>Mass Mention spam/raid detection and ban</li>
+						<li>Web Dashboard - Fully configurable.</li>
+						<li>Announcements - Customizable join/leave/banned, optional PM user</li>
+						<li>Music - Music with youtube search</li>
+						<li>Auto Roles - Give role on join</li>
+						<li>Joinable Ranks - Let members self-assign ranks/roles</li>
+						<li>Custom Commands - Easy to use custom commands</li>
+						<li>AFK - Post an AFK status when mentioned in chat</li>
+						<li>Reminders</li>
+						<li>Google search</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

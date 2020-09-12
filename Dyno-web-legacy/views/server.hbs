@@ -1,0 +1,84 @@
+<div class="container">
+  <!--<div class="notification success is-success is-hidden"><p></p></div>-->
+  <!--<div class="notification error is-danger is-hidden"><p></p></div>-->
+
+  <div class="columns">
+    <div class="column">
+      <h2 class="title is-3">Manage Server - {{@root.server.name}}</h2>
+    </div>
+  </div>
+
+  <div class="columns">
+    <div class="column is-3">
+      <div id="carbon">
+        <div class="carbon-wrapper">
+          <script async type="text/javascript" src="//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=dynobotnet" id="_carbonads_js"></script>
+        </div>
+      </div>
+      <aside class="menu">
+        <p class="menu-label">Main Settings</p>
+        <ul class="menu-list">
+          <li><a href="#/settings" class="tab-control">Bot Settings</a></li>
+          <li><a href="#/modules"  class="tab-control">Modules</a></li>
+          <li><a href="#/commands" class="tab-control">Commands</a></li>
+        </ul>
+        <p class="menu-label">Enabled Modules</p>
+        <ul class="menu-list">
+          {{!-- Enabled Modules --}}
+          {{#each modules}}
+            {{#if this.hasPartial}}
+              {{#if this.enabled}}
+                  {{#unless this.hide}}
+                      <li><a href="#/module-{{this.partialId}}" class="tab-control">{{this.friendlyName}}</a></li>
+                  {{/unless}}
+              {{/if}}
+            {{/if}}
+          {{/each}}
+
+          {{#if isAdmin}}
+            <li><a href="#/module-dyno" class="tab-control">Dyno Stats</a></li>
+          {{/if}}
+        </ul>
+        <p class="menu-label">Disabled Modules</p>
+        <ul class="menu-list">
+          {{!-- Enabled Modules --}}
+          {{#each modules}}
+            {{#if this.hasPartial}}
+              {{#unless this.enabled}}
+                  {{#unless this.hide}}
+                      <li><a href="#/module-{{this.partialId}}" class="tab-control">{{this.friendlyName}}</a></li>
+                  {{/unless}}
+              {{/unless}}
+            {{/if}}
+          {{/each}}
+        </ul>
+      </aside>
+    </div>
+
+    <div class="column">
+      {{! Loader }}
+      {{>loader}}
+
+      {{! Bot settings }}
+      {{>modules/settings}}
+
+      {{! Modules/Commands }}
+      {{>modules/modules}}
+      {{>modules/commands}}
+
+      {{! Module settings }}
+      {{#each modules}}
+        {{#if this.hasPartial}}
+            {{#unless this.hide}}
+                {{> (dynamicPartial this.partial)}}
+            {{/unless}}
+        {{/if}}
+      {{/each}}
+
+      {{! Admin modules }}
+      {{#if isAdmin}}
+        {{>modules/dyno}}
+      {{/if}}
+    </div>
+
+  </div>
